@@ -1,13 +1,15 @@
 import Image from 'next/image'
 import './globals.css'
 import Thumbnail from '@/components/lectieThumbnail'
-import NavBar from '@components/NavBar'
+import NavBar from '@components/header'
+import Link from 'next/link'
 
 export default function Home() {
   return (
-    <main className="flex flex-col items-center justify-start">
-      <Thumbnail titlu="Ce este FTC?" subtitle="First tech challenge este o competitie de robotica care..." imageSrc="/images/images.jpg"/>
-      <Thumbnail titlu="Ce este FTC?" subtitle="First tech challenge este o competitie de robotica care..." imageSrc="/images/images.jpg"/>
+    <main className="color_light flex flex-col items-center justify-start mt-[80px] text-6xl">
+      <Link href="http://localhost:3000/register">REGISTER</Link>
+      <Link href="http://localhost:3000/login">Login</Link>
+      <Link href="http://localhost:3000/account">Account</Link>
     </main>
   )
 }

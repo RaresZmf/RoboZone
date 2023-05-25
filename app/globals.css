@@ -20,9 +20,27 @@
   }
 }
 
+/* CULORI */
+
+.color_primary {
+  color:#57C5B6;
+}
+.color_light {
+  color:#cccccc;
+}
+
 .fundal {
   background-color: #242424;
 }
+
+.account_info {
+  color: #242424;
+  background-color: #57C5B6;
+  border-radius: 5px;
+  border-width: 3px;
+  border-color: #57C5B6;
+}
+
 
 .home_title {
   color: #cccccc;
@@ -135,4 +153,8 @@ body {
   background: linear-gradient(to right, #57C5B6 0%, #1A5F7A 76%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.border_primary {
+  border-color: #57C5B6;
 }

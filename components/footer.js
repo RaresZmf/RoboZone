@@ -3,9 +3,7 @@ import Logo from "./logo"
 export default function Footer(props){
     return(
         <div className={props.classes}>
-            <div className="flex items-start justify-between darkLightBackground px-[500px] py-[15px]">
-            <Logo />
-            <div className="flex items-start justify-around">
+            <div className="flex items-start justify-around px-[500px] py-[15px] darkLightBackground">
                     <div className="flex flex-col justify-start items-start px-[70px]">
                         <p className="textColorDark text-2xl font-semibold py-[20px]">About Us</p>
                         <p className="textColorDark text-xl font-medium py-[5px]">About</p>
@@ -23,7 +21,6 @@ export default function Footer(props){
                         <p className="textColorDark text-xl font-medium py-[5px]">Ghid suport</p>   
                     </div>                
             </div>
-        </div>
-        </div>    
+        </div>  
     )
 }

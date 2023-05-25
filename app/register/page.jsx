@@ -24,21 +24,21 @@ const page = () => {
         setPassVal(event.target.value)
     }
 
-    const signIn = () => {
-        supabase.auth.signInWithPassword({
+    const signUp = () => {
+        supabase.auth.signUp({
             email: emailval,
             password: passval,
         })
-        routers.push("/");
+        routers.push("/welcome");
     }
 
     return (
         <main>
-            <div className="login_title">Login Page</div>
+            <div className="login_title">Register Page</div>
             <div className='flex flex-col items-center'>
                 <input className='login_form' onChange={changeEmail} type='email' placeholder='email' id='email'></input>
                 <input className='login_form' onChange={changePass} type='password' placeholder='password' id='pass'></input>
-                <button className='login_buton' onClick={signIn}>Login</button>
+                <button className='register_buton' onClick={signUp}>Register</button>
             </div>
         </main>
   )
