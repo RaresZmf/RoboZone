@@ -2,14 +2,8 @@ import fs from "fs"
 import Markdown from "markdown-to-jsx"
 import matter from "gray-matter"
 import getPostMetadata from "../../../components/getPostMetadata"
-
-function getPostContent(slug){
-    const folder = "posts/"
-    const file = `${folder}${slug}.md`
-    const content = fs.readFileSync(file, "utf8")
-    const matterResult = matter(content)
-    return matterResult
-}
+import getPostContent from "../../../components/getPostContent"
+import Chat from "../../../components/chat"
 
 export const generateStaticParams = async() => {
     const posts = getPostMetadata()
@@ -34,6 +28,7 @@ export default function Page(props){
                     </div>
                 </div>
             </div>
+            <Chat prompt="Ce faci ?"/>
         </main>
     )
 }
