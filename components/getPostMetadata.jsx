@@ -1,4 +1,4 @@
-import fs from "fs"
+import fs from 'fs'
 import matter from "gray-matter"
 
 const getPostMetadata = () => {
