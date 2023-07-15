@@ -8,38 +8,69 @@ import openai from '../utils/openai';
 //     apiKey: "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",
 // });
 // const openai = new OpenAIApi(configuration);
-// const prompt = "Esti un asistent AI antrenat pentru a raspunde intrebarilor legate strict de o lectie de robotica, in caz contrar, explici politicos faptul ca intrebarea nu are legatura cu robotica. Iata mesajul: "
+const initPrompt = "Esti un asistent AI cu rolul de a raspunde intrebarilor legate strict de o lectie de robotica, in caz contrar, explici politicos faptul ca intrebarea nu are legatura cu robotica. Uite o lectie in format MDX pentru context, iar la final intrebarea elevului. Lectia si intrebarea sunt despartite de caracterele '%%%'. Orice ai face nu mentiona caracterele %%%"
 
 export default function Chat(props){
     const [messages, setMessages] = useState("");
     const [response, setResponse] = useState("");
+    const [displayMessage, setDisplayMessage] = useState("");
 
     async function openAIRequest() {
+        setMessages("");
+        setResponse("");
+        setDisplayMessage(messages);
         const response = await fetch('/api/hello',{
             method: "POST",
             headers:{
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ prompt: "Cat e 2+2?" }),
+            body: JSON.stringify({ prompt: initPrompt + props.lessonContent + "%%%" + messages }),
         })
-        const data = await response.json();
-        console.log(data); // Handle the response data here
+        const data = await response.json(); //AI's response
+        setResponse(data);
     }
 
     return (
         <div className={props.classes}>
-            <div>
-                <h2>Nelamuriri legate de Dani Mocanu?</h2>
-                <h3>Scrie aici ca le dovedim noi bro</h3>
-                <div>
-                    <textarea onChange={(e) => setMessages(e.target.value)} placeholder="Send your message here" id="" cols="30" rows="10"></textarea>
+            <div className="max-w-[800px]">
+                <div className="">
                     {
-                        response !== "" ? 
-                        <h3>{response}</h3>
+                        displayMessage !== "" ?
+                        <div className='flex justify-end items-center my-[25px]'>
+                            <div className='bg-primary py-[15px] px-[22px] rounded-2xl max-w-[70%]'>
+                                <p className="text-white text-2xl whitespace-normal">{displayMessage}</p>
+                            </div>
+                        </div>
                         :
                         null
                     }
-                    <button onClick={openAIRequest} className='py-[100px] px-10px bg-white'>Raspunde la intrebare</button>
+                </div>
+                <div className="">
+                    {
+                        response !== "" ?
+                        <div className='flex justify-start items-center my-[25px]'>
+                            <div className='bg-secondary py-[15px] px-[22px] rounded-2xl max-w-[70%]'>
+                                <p className="text-white text-2xl whitespace-normal">{response}</p>
+                            </div>
+                        </div>
+                        :
+                        null
+                    }
+                </div>
+                <div className='flex flex-center items-center my-[20px]'>
+                    <textarea 
+                    onChange={(e) => setMessages(e.target.value)} 
+                    onKeyDown={(e) => {
+                        if (e.key === 'Enter' && !e.shiftKey) {
+                          e.preventDefault();
+                          openAIRequest();
+                        }
+                    }}
+                    value={messages} placeholder="Send your message here" 
+                    className='bg-transparent border-2 border-r-0 rounded-l-3xl border-primary placeholder-gray-500 w-full h-20 focus:outline-none text-white text-xl pt-[22px] pb-[8px] pl-[30px] pr-[50px] resize-none' 
+                    id="" cols="30" rows="10">
+                    </textarea>
+                    <button onClick={openAIRequest} className='text-2xl h-full py-[22px] px-[30px] bg-darker text-light rounded-r-3xl bg-transparent border-2 border-l-[0px] border-primary'>Trimite</button>
                 </div>
             </div>
         </div>

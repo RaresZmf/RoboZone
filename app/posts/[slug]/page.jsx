@@ -27,7 +27,7 @@ export default function Page(props){
                     </div>
                 </div>
             </div>
-            <Chat prompt="Ce faci ?"/>
+            <Chat classes="flex justify-center" lessonContent={post.content} lessonTitle={post.data.title}/>
         </main>
     )
 }

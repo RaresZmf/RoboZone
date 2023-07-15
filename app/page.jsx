@@ -4,8 +4,10 @@ import Lectii from './homePage/page'
 // import { LectiiIntroducere } from './homePage/page'
 import { LectiiIntroducere } from './homePage/page'
 import Line from "components/line"
+import ProTipComponent from "components/proTip"
 
 export default function Home() {
+
   return (
     <main className="color_light flex flex-col items-center justify-start mt-[80px]">
       <div className='w-[85%] md:w-[800px]'>
@@ -21,6 +23,7 @@ export default function Home() {
               Sign Up
             </Link>
           </div>
+          <ProTipComponent />
         </div>
         <div className='lessonsWrap mt-[80px] mb-[50px]'>
           <div>

@@ -27,6 +27,7 @@ module.exports = {
         'accent': '#1a5f7a',
         'dark': '#242424',
         'light': '#cccccc',
+        'darker': '#1a1a1a',
       }
     },
   },
