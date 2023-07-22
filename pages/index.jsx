@@ -6,8 +6,11 @@ import supabase from '../utils/supabase';
 import { useRouter } from 'next/router';
 import { motion } from "framer-motion";
 import Postcard from '../components/Postcard';
+import { useUser } from '@auth0/nextjs-auth0/client';
+
 
 export default function Index() {
+  const { user, isLoading } = useUser();
   const [articles, setarticles] = useState([])
   const textVariants = {
     hidden: {
@@ -41,6 +44,31 @@ export default function Index() {
     hidden: { opacity: 0 },
     visible: { opacity: 1 },
   };
+
+  async function fetchUser(){
+      const { data, error } = await supabase
+        .from('authdata')
+        .select("*")
+        .eq("auth0id", user.sub)
+        .limit(1);
+
+        console.log(data);
+        console.log(error);
+
+        if(data.length<1)
+      {
+        await supabase
+        .from('authdata')
+        .insert({auth0id: user.sub});
+
+        console.log("added user");
+      }
+      else
+      {
+        console.log("user already exists");
+      }
+  }
+
   async function fetchData() {
     try {
       const { data, error } = await supabase
@@ -64,6 +92,7 @@ export default function Index() {
 
   useEffect(() => {
     fetchData();
+    fetchUser();
   }, [])
   const words = [
     "Explorează",

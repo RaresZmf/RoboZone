@@ -1,13 +1,38 @@
 import React from 'react';
 import { Row, Col } from 'reactstrap';
 import { useUser, withPageAuthRequired } from '@auth0/nextjs-auth0/client';
-
+import { useRouter } from 'next/router';
 import Loading from '../../components/Loading';
 import ErrorMessage from '../../components/ErrorMessage';
 import Highlight from '../../components/Highlight';
+import supabase from '../../utils/supabase';
+import { useState, useEffect } from 'react';
 
 function Profile() {
   const { user, isLoading } = useUser();
+  const [isadmin, setisadmin] = useState(false)
+  const router = useRouter();
+
+  function userLogOut() {
+    router.push('/api/auth/logout')
+  }
+
+  function routeLectie() {
+    router.push();
+  }
+
+  async function fetchAdmin() {
+    const { data, error } = await supabase
+        .from('authdata')
+        .select("admin")
+        .eq("auth0id", user.sub)
+        .limit(1);
+        setisadmin(data[0].admin)
+  }
+
+  useEffect(() => {
+    fetchAdmin();
+  }, [])
 
   return (
     <>
@@ -34,6 +59,14 @@ function Profile() {
           <Row data-testid="profile-json">
             <Highlight>{JSON.stringify(user, null, 2)}</Highlight>
           </Row>
+          <div className='flex align-items-center justify-center'>
+              <button onClick={userLogOut} className="w-[100px] h-[35px] my-[20px] bg-blue-500 text-white border-[2px] border-blue-500 rounded-3xl" round>LogOut</button>
+              {isadmin && (
+               <>
+                 <button onClick={routeLectie} className="w-[150px] h-[35px] my-[20px] bg-blue-500 text-white border-[2px] border-blue-500 rounded-3xl ml-[20px]" round>Adauga o Lectie</button>
+                </>
+              )}
+          </div>
         </>
       )}
     </>
