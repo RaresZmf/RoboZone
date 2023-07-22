@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 import Postcard from '../components/Postcard';
 import { useUser } from '@auth0/nextjs-auth0/client';
 
+import ProTip from '../components/proTip';
 
 export default function Index() {
   const { user, isLoading } = useUser();
@@ -125,7 +126,8 @@ export default function Index() {
           <Image src={'https://res.cloudinary.com/dvntmruhr/image/upload/v1689724243/UI%20Icons/Automation_Testing_tuh2zs.png'} width={300} height={300} alt="" className='' />
         </div>
         <div className='absolute top-0 right-0 translate-y-[150px] -translate-x-[30px]'>
-          <Image src={'https://res.cloudinary.com/dvntmruhr/image/upload/v1689724243/UI%20Icons/Chatbot_f8xvfz.png'} width={300} height={300} alt="" className='animate-floatingsmall2' />
+          {/* <Image src={'https://res.cloudinary.com/dvntmruhr/image/upload/v1689724243/UI%20Icons/Chatbot_f8xvfz.png'} width={300} height={300} alt="" className='animate-floatingsmall2' /> */}
+          <ProTip />
         </div>
         <div className="text-6xl font-bold text-center">
       <motion.span

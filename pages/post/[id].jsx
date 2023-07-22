@@ -3,6 +3,7 @@ import supabase from '../../utils/supabase';
 import React, { useState, useEffect } from 'react';
 import moment from 'moment';
 import ReactMarkdown from 'react-markdown';
+import Chat from '../../components/chatLectie';
 
 import dynamic from "next/dynamic";
 const EditorView = dynamic(
@@ -124,6 +125,9 @@ export default function ViewPost() {
           </div>
         </div>
         {isPostLoaded && <EditorView json={post.json} />}
+        <div>
+          {isPostLoaded && post.json && <Chat lessonContent={JSON.stringify(post.json)}/>}
+        </div>
       </div>
     </>
   );

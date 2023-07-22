@@ -10,7 +10,8 @@ module.exports = {
     SUPABASE_ANON_KEY: process.env.SUPABASE_ANON_KEY,
     NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
     NEXT_PUBLIC_CLOUDINARY_API_KEY: process.env.NEXT_PUBLIC_CLOUDINARY_API_KEY,
-    NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET: process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET
+    NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET: process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET,
+    NEXT_PUBLIC_OPENAI_API_KEY: process.env.OPENAI_API_KEY
   },
   images: {
     domains: [
@@ -24,5 +25,24 @@ module.exports = {
   },
   compiler: {
     removeConsole: process.env.NODE_ENV === "production"
+  },
+  future: {
+
+    // by default, if you customize webpack config, they switch back to version 4.
+    // Looks like backward compatibility approach.
+    webpack5: true,   
+  },
+
+  webpack(config) {
+    config.resolve.fallback = {
+
+      // if you miss it, all the other options in fallback, specified
+      // by next.js will be dropped.
+      ...config.resolve.fallback,  
+
+      fs: false, // the solution
+    };
+    
+    return config;
   },
 };
