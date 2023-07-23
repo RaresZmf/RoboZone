@@ -4,7 +4,7 @@ import Typewriter from 'typewriter-effect';
 
 
 
-export default function ProTip(){
+export default function ProTip(props){
     
     const [show, setShow] = useState(false);
     const [proTip, setProTip] = useState("");
@@ -29,14 +29,14 @@ export default function ProTip(){
     }
 
     return(
-        <div className="relative d-flex justify-content-end">
-            <button onClick={function(){openAIRequest()}} disabled={loading}>
-                <Image src={'https://res.cloudinary.com/dvntmruhr/image/upload/v1689724243/UI%20Icons/Chatbot_f8xvfz.png'} width={300} height={300} alt="" className='animate-floatingsmall2' />
-            </button>
+        <div className={"relative flex justify-content-end"}>
+            <div className={props.imageSize}>
+                <Image src={'https://res.cloudinary.com/dvntmruhr/image/upload/v1689724243/UI%20Icons/Chatbot_f8xvfz.png'} onClick={function(){openAIRequest()}} disabled={loading} objectFit='contain' layout='fill' alt="" className='animate-floatingsmall2' />
+            </div>
             {
             show && proTip.length > 0 && proTip.length < 100 && 
-            <div className="absolute top-[55%] align-self-start whitespace-nowrap right-[90%]">
-                <div className="border-2 border-primary rounded-xl rounded-tr-none py-[5px] px-[5px]">
+            <div className="absolute top-[55%] align-self-start md:whitespace-nowrap right-[90%]">
+                <div className="border-2 border-primary max-w-[500px] rounded-xl rounded-tr-none py-[5px] px-[5px]">
                 <Typewriter
                     key={proTip}
                     options={{autoStart: true, loop: false, delay: Math.random() * (75 - 25) + 25}}

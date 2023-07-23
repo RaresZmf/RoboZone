@@ -79,7 +79,7 @@ export default function ViewPost() {
 
         const { data, error } = await supabase.from("MD")
         .update({ liked_by: updatedPeopleLiked })
-        .eq("id", 53)
+        .eq("id", id)
 
         console.log('Elementul a fost actualizat cu succes:', updatedPeopleLiked);
         return data;
@@ -92,7 +92,7 @@ export default function ViewPost() {
 
         const { data, error } = await supabase.from("MD")
         .update({ liked_by: updatedPeopleLiked })
-        .eq("id", 53)
+        .eq("id", id)
 
         console.log('Elementul a fost actualizat cu succes:', updatedPeopleLiked);
         return data;

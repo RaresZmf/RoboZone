@@ -21,10 +21,10 @@ import Undo from 'editorjs-undo';
 import DragDrop from 'editorjs-drag-drop';
 
 import { useRouter } from "next/router";
+import { errorMonitor } from "events";
 
-export default function Editor({ read, json, note, user, actual_user, owner, user_pic, user_name }) {
+export default function EditorView({ read, json, note, user, user_pic, id }) {
   const editorRef = useRef(null);
-  const [title, settitle] = useState('')
   const [editorData, setEditorData] = useState('');
   const [fetchedContent, setfetchedContent] = useState('')
   const [loading, setloading] = useState(false);
@@ -54,6 +54,7 @@ export default function Editor({ read, json, note, user, actual_user, owner, use
   function get_url_extension(url) {
     return url.split(/[#?]/)[0].split('.').pop().trim();
   }
+
   useEffect(() => {
     const exitingFunction = () => {
       editorRef.current.destroy();
@@ -67,9 +68,10 @@ export default function Editor({ read, json, note, user, actual_user, owner, use
       router.events.off("routeChangeStart", exitingFunction);
     };
   }, []);
+
   const initEditor = (cc) => {
     const editor = new EditorJS({
-      readOnly: ronly,
+      readOnly: false,
       holderId: "editorjs",
       tools: {
         header: {
@@ -149,91 +151,62 @@ export default function Editor({ read, json, note, user, actual_user, owner, use
       onChange: () => {
         console.log("Content was changed");
         // handleSave();
-        console.log(title);
       },
       onSave: () => {
         console.log("Content was saved");
       },
     });
   };
-  async function fetchContent(id) {
-    const rawResponse = await fetch('/api/notes/fetch_one', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ id: id, user: actual_user })
-    });
-    const contentx = await rawResponse.json();
-    setfetchedContent(contentx.json);
-    console.log(contentx)
-    return contentx;
-  }
+
   const handleSave = async () => {
     const outputData = await editorRef.current.save();
     setloading(true);
     setronly(true);
+
     try {
-      const x = await supabase.from('MD').insert([
+      const x = await supabase.from('MD').update([
         {
-          title,
-          subtitle: outputData.blocks.find((block) => block.type === "paragraph")?.data.text,
+          subtitle: outputData.blocks.find((block) => block.type === "paragraph").data.text,
           json: outputData.blocks,
-          content: 'asd',
-          creator: user,
-          creator_pic: user_pic,
-          creator_name: user_name,
-          introduction: false,
-          community: true,
-          live: true
         },
-      ]);
-      if (x) { router.push('/posts/community') }
+      ]).eq('id',id);
+      console.log(x);
     } catch (error) {
       console.log(error);
     }
-    // const rawResponse = await fetch('/api/notes/update', {
-    //   method: 'POST',
-    //   headers: {
-    //     'Accept': 'application/json',
-    //     'Content-Type': 'application/json'
-    //   },
-    //   body: JSON.stringify({
-    //     id: note,
-    //     content: outputData.blocks,
-    //   })
-    // });
-    // const cttt = await rawResponse.json();
-    // console.log(cttt);
-    // for (let i = 0; i < outputData.blocks.length; i++) {
-    //   if (
-    //     outputData.blocks[i].type === "header" &&
-    //     outputData.blocks[i].data.level === 2
-    //   ) {
-    //     var title = outputData.blocks[i].data.text;
-    //     break;
-    //   }
-    // }
     console.log(outputData)
   };
+
+  const handleDelete = async () =>
+  {
+    try{
+      const x = await supabase
+      .from('MD')
+      .delete()
+      .eq('id', id)
+
+      console.log("stergere efectuata cu succes")
+    } catch (error) {
+      console.log(error)
+    } finally {
+      router.push('/')
+    }
+  }
+
   useEffect(() => {
     if (!editorRef.current) {
-      initEditor(json)
+      initEditor(json);
       // fetchContent(note).then((response) => { initEditor(response.json) })
     }
-
   }, []);
 
   return (
-    
-    <div className="flex flex-col items-center content-center justify-center">
-      <input disabled={loading} value={title} onChange={(e) => settitle(e.target.value)} className='bg-transparent self-start w-full caret-blue-500 border-transparent focus:border-transparent focus:ring-0 text-5xl focus:outline-none' placeholder='Titlu' />
-      <div id="editorjs" className={!loading ? " pt-10 z-0 rounded-lg  max-h-[500px] overflow-scroll no-scrollbar h-[500px] bg-white w-full border color-[#37352f]" : 'hidden'} />
-      <button disabled={loading} onClick={handleSave} className='bg-black mt-5 text-white w-full h-[50px] rounded-xl font-bold'>
-        {!loading ? 'Trimite' : <div className="flex flex-row justify-center w-full items-center space-x-1 content-center">
-        <div className="p-1 rounded-full bg-white animate-pulse"></div><div className="p-1 rounded-full bg-white animate-pulse"></div><div className="p-1 rounded-full bg-white animate-pulse"></div>
-          </div>}
-      </button>
+    <div className="flex flex-col w-full items-center content-center justify-center">
+      <div id="editorjs" className={!loading ? " pt-10 z-0 rounded-lg max-h-full overflow-scroll no-scrollbar w-[750px] h-fit bg-white  border color-[#37352f]" : 'hidden'} />
+      <div className="flex flex-row space-x-4">
+        <button onClick={handleSave} className="w-[100px] h-[35px] mt-[20px] bg-blue-500 text-white border-[2px] border-blue-500 rounded-3xl">Salveaza</button>
+        <button onClick={handleDelete} className="w-[100px] h-[35px] mt-[20px] bg-red-500 text-white border-[2px] border-red-500 rounded-3xl">Sterge</button>
+      </div>
     </div>
   );
 }

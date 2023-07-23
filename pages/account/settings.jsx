@@ -18,7 +18,7 @@ function Profile() {
   }
 
   function routeLectie() {
-    router.push();
+    router.push('/account/adminpost/add');
   }
 
   async function fetchAdmin() {

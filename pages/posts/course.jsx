@@ -2,6 +2,7 @@ import supabase from '../../utils/supabase';
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
+import Postcard from '../../components/Postcard';
 
 export default function CourseView() {
     const [articles, setarticles] = useState([])
@@ -61,14 +62,9 @@ export default function CourseView() {
                     <div key={'ROBOZONE_CHAPTER_DIV_' + chapterNumber} className='p-10 rounded-xl shadow-md border flex flex-col space-y-4 border-gray-100'>
                         <span className='font-bold decoration-2 text-xl decoration-blue-500 underline'>Capitolul {chapterNumber}</span>
                         <div className='grid grid-cols-2 gap-5'>
-                            {chapter.items?.map((item) => (
-                                <div onClick={() => router.push('/post/'+item.id)} className='flex flex-col cursor-pointer justify-between hover:shadow-md transition duration-300 ease-in-out hover:-translate-y-[10px] p-5 rounded-xl border space-y-2'>
-                                    <span className='bg-white  rounded-xl text-blue-500 font-medium' key={item.id}>{item.title}</span>
-                                    <span className='bg-white text-xs text-gray-500 rounded-xl' key={item.id}>{item.subtitle?.substring(0, 100) + '...'}</span>
-                                    <div className='flex text-xs text-gray-500 flex-row justify-between'>
-                                        <span>20 views</span>
-                                        <span>20 views</span>
-                                    </div>
+                            {chapter.items?.map((item, index) => (
+                                <div onClick={() => router.push('/post/'+item.id)} className='flex flex-col cursor-pointer justify-between hover:shadow-md transition duration-300 ease-in-out hover:-translate-y-[10px] rounded-xl space-y-2'>
+                                    <Postcard id={item.id} title={item.title} description={item.subtitle} community={false} likes={item.liked_by.length} creatorpic={item.creator_pic} creatorname={item.creator_name} ordine={index+1}/>
                                 </div>
                             ))}
                         </div>
