@@ -48,13 +48,15 @@ export default function CourseView() {
 
     return (
         <div className='flex flex-col select-none w-screen max-w-4xl'>
-            <div className='flex flex-row items-center content-center justify-between'>
+            <div className='flex sm:flex-row flex-col items-center content-center justify-between'>
                 <div className='flex flex-col space-y-3 justify-center'>
                     <span className='text-6xl font-bold underline decoration-6 decoration-blue-500'>Fii robot</span>
                     <span className='text-gray-500 text-xl max-w-3xl '>Escape the matrix</span>
                 </div>
-                <div className=''>
-                    <Image src={'https://res.cloudinary.com/dvntmruhr/image/upload/v1689724244/UI%20Icons/Robot_xtk2uw.png'} alt='' width={300} height={300} />
+                <div >
+                    <div className='relative w-[100px] h-[100px]'>
+                        <Image src={'https://res.cloudinary.com/dvntmruhr/image/upload/v1689724244/UI%20Icons/Robot_xtk2uw.png'} alt='' fill={true} />
+                    </div>
                 </div>
             </div>
             <div className='flex flex-col space-y-5 pb-32 bg-white rounded-xl w-full'>

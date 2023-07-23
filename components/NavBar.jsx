@@ -32,7 +32,7 @@ const NavBar = () => {
       <Link href='/'>
         <span className='hidden sm:inline text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-blue-400 font-extrabold text-xl'>RoboZone</span>
       </Link>
-      <div className='flex flex-row border sm:rounded-xl overflow-hidden bg-white sm:rounded-l-full w-fit sm:rounded-r-full items-center content-center sm:space-x-1 font-bold'>
+      <div className='flex flex-row border sm:rounded-xl overflow-hidden sm:text-base text-xs bg-white sm:rounded-l-full w-fit sm:rounded-r-full rounded-xl items-center content-center sm:space-x-1 font-bold'>
         <div className='flex flex-col items-center justify-center space-y-2 sm:space-y-0 sm:space-x-7  sm:inline sm:p-[0px]'>
           <Link href='/posts/community/add' className='bg-blue-500 text-white py-2 px-[10px] sm:rounded-l-full flex flex-row items-center content-center justify-center space-x-2'>
             <span>Posteaz&#259;</span><PlusIcon className='w-4 h-4' />

@@ -121,13 +121,15 @@ export default function Index() {
   const router = useRouter();
   return (
     <>
-      <div className='flex flex-col items-center content-center select-none mt-[100px] lg:mt-[0px]'>
+      <div className='flex flex-col items-center content-center select-none sm:mt-[100px] lg:mt-[0px]'>
         <div className=' lg:absolute hidden relative lg:top-0 lg:left-10 translate-x-[-100%] lg:translate-y-[300px] h-[140px] w-[140px] md:h-[200px] md:w-[200px]'>
           <Image src={'https://res.cloudinary.com/dvntmruhr/image/upload/v1689724243/UI%20Icons/Automation_Testing_tuh2zs.png'} objectFit='contain' layout='fill' alt="" className='' />
         </div>
-        <div className='lg:absolute relative lg:top-0 lg:right-0 lg:translate-y-[150px] translate-x-[100%] translate md:-translate-x-[30px] pb-[200px]'>
+        <div className='relative h-[270px] w-full'>
+          <div className='absolute top-0 right-0'>
+            <ProTip imageSize='w-[140px] h-[140px] md:h-[200px] md:w-[200px]' />
+          </div>
           {/* <Image src={'https://res.cloudinary.com/dvntmruhr/image/upload/v1689724243/UI%20Icons/Chatbot_f8xvfz.png'} width={300} height={300} alt="" className='animate-floatingsmall2' /> */}
-          <ProTip imageSize='w-[140px] h-[140px] md:h-[200px] md:w-[200px]' />
         </div>
         <div className="text-4xl md:text-6xl font-bold text-center">
       <motion.span
@@ -168,7 +170,7 @@ export default function Index() {
         <button onClick={() => router.push('/posts/course')} className='px-4 py-2 rounded-xl bg-blue-500 ring-2 ring-offset-2 ring-blue-500 mt-6 transition duration-300 ease-in-out hover:ring-offset-4 text-white font-medium outline-2'>
           C&#259;tre cursuri
         </button>
-        <div className=' mt-24 mb-24 w-screen px-[20%] flex justify-center'>
+        <div className='my-24 w-screen px-[10%] flex justify-center'>
           <div className='grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-10 max-w-[800px]'>
             {articles.map((article) => (
               <Postcard key={'X_ROBOZONE_CARD_' + article.id} title={article.title} id={article.id} description={article.subtitle} />

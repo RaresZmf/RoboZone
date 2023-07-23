@@ -36,15 +36,17 @@ export default function ProTip(props){
             {
             show && proTip.length > 0 && proTip.length < 100 && 
             <div className="absolute top-[55%] align-self-start md:whitespace-nowrap right-[90%]">
-                <div className="border-2 border-primary max-w-[500px] rounded-xl rounded-tr-none py-[5px] px-[5px]">
-                <Typewriter
-                    key={proTip}
-                    options={{autoStart: true, loop: false, delay: Math.random() * (75 - 25) + 25}}
-                    onInit={(typewriter) => {
-                        typewriter.typeString(proTip)
-                            .start();
-                    }}
-                />
+                <div className="border-2 border-primary rounded-xl rounded-tr-none py-[5px] px-[5px]">
+                <p className="w-[50vw] sm:w-[100%]">
+                    <Typewriter
+                        key={proTip}
+                        options={{autoStart: true, loop: false, delay: Math.random() * (75 - 25) + 25}}
+                        onInit={(typewriter) => {
+                            typewriter.typeString(proTip)
+                                .start();
+                        }}
+                    />
+                </p>
                 </div>
             </div>
             }
