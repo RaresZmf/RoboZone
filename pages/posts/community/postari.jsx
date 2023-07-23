@@ -39,10 +39,10 @@ const postari = () => {
   }, []);
 
   return (
-    <div className="flex flex-col space-y-5 pb-32 bg-white rounded-xl w-full">
-      <div className="flex flex-row items-center content-center justify-between">
-        <div className="flex flex-col space-y-3 justify-center">
-          <span className="text-6xl font-bold underline decoration-6 decoration-blue-500">
+    <div className="flex flex-col space-y-5 pb-32 bg-white rounded-xl w-full px-[8%] sm:px-[15%]">
+      <div className="flex sm:flex-row flex-col items-center content-center justify-between">
+        <div className="flex flex-col space-y-3 justify-center items-center sm:items-start">
+          <span className="sm:text-4xl md:text-6xl text-2xl font-bold underline decoration-6 decoration-blue-500">
             Editeaza postarile
           </span>
           <span className="text-gray-500 text-xl max-w-3xl ">
@@ -50,17 +50,19 @@ const postari = () => {
           </span>
         </div>
         <div className="animate-floatingsmall2">
-          <Image
-            src={
-              "https://res.cloudinary.com/dvntmruhr/image/upload/v1689773313/Data_Learning_ake15t.png"
-            }
-            alt=""
-            width={300}
-            height={300}
-          />
+          <div className='relative left-[20vw] w-[150px] h-[150px] sm:w-[200px] sm:h-[200px] md:w-[300px] md:h-[300px] sm:left-0'>
+            <Image
+              src={
+                "https://res.cloudinary.com/dvntmruhr/image/upload/v1689773313/Data_Learning_ake15t.png"
+              }
+              alt=""
+              width={300}
+              height={300}
+            />
+          </div>
         </div>
       </div>
-      <div className="grid grid-cols-2 gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {articles.map((item) => (
           <div
             className="h-full"
