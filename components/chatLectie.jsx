@@ -28,7 +28,7 @@ async function openAIRequest() {
 
     return (
         <div className={props.classes}>
-            <div className="max-w-[800px]">
+            <div className="max-w-[800px] w-[90vw]">
                 <div className="">
                     {
                         displayMessage !== "" ?

@@ -16,9 +16,8 @@ const postari = () => {
       const { data, error } = await supabase
         .from("MD")
         .select("*")
-        .eq("community", true)
-        .eq("creator", user.sub)
-        .order("id", { ascending: false });
+        .eq("community", false)
+        .order("id", { ascending: true });
 
       if (error) {
         console.error(error);

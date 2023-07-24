@@ -32,32 +32,17 @@ const NavBar = () => {
       <Link href='/'>
         <span className='hidden sm:inline text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-blue-400 font-extrabold text-xl'>RoboZone</span>
       </Link>
-      <div className='flex flex-row border sm:rounded-xl overflow-hidden sm:text-base text-xs bg-white sm:rounded-l-full w-fit sm:rounded-r-full rounded-xl items-center content-center sm:space-x-1 font-bold'>
-        <div className='flex flex-col items-center justify-center space-y-2 sm:space-y-0 sm:space-x-7  sm:inline sm:p-[0px]'>
-          <Link href='/posts/community/add' className='bg-blue-500 text-white py-2 pb-1 sm:pb-2 px-[10px] sm:rounded-l-full flex flex-row items-center content-center justify-center space-x-2'>
-            <span>Posteaz&#259;</span><PlusIcon className='w-4 h-4' />
-          </Link>
-          <Link href='/' className='sm:hidden text-center bg-white pb-[12px] text-gray-500 transition duration-300 ease-in-out hover:text-black'>
-            Home
-          </Link>
-        </div>
-        <div className='flex flex-col items-center justify-center space-y-2 sm:space-y-0 sm:space-x-7 py-[5px] px-[10px] sm:inline p-[0px]'>
-          <Link href='/posts/course' className='bg-white text-gray-500 transition duration-300 ease-in-out hover:text-black'>
-            Lectii
+      <div className='flex flex-row border overflow-hidden sm:text-base text-xs bg-white w-fit rounded-full items-center content-center space-x-3 sm:space-x-6 font-bold'>
+          <Link href='/posts/course' className='bg-blue-500 text-white py-3 sm:pb-2 px-3 sm:px-7 sm:rounded-l-full h-full flex flex-row items-center content-center justify-center space-x-2'>
+            <span>Lectii</span>
           </Link>
           <Link href='/posts/community' className='bg-white text-gray-500 transition duration-300 ease-in-out hover:text-black'>
             Community
           </Link>
-        </div>
-        <div className='flex flex-col items-center justify-center space-y-2 sm:space-y-0 sm:space-x-7 py-[5px] px-[10px] sm:inline p-[0px]'>
           <Link href='/exercises' className='bg-white text-gray-500 transition duration-300 ease-in-out hover:text-black'>
             Exerci&#355;ii
           </Link>
-          <Link href='/account/settings' className='sm:hidden bg-white text-gray-500 transition duration-300 ease-in-out hover:text-black'>
-            Account
-          </Link>
-        </div>
-        <Image onClick={() => router.push('/account/settings')} src={user?.picture} width={40} height={40} alt={user?.nickname} className="hidden sm:inline rounded-full cursor-pointer border-2 border-white" />
+          <Image onClick={() => router.push('/account/settings')} src={user?.picture} width={40} height={40} alt={user?.nickname} className="rounded-full cursor-pointer border-2 border-white" />
       </div>
     </div>
   );

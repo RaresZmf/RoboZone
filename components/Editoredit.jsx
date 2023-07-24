@@ -202,7 +202,7 @@ export default function EditorView({ read, json, note, user, user_pic, id }) {
 
   return (
     <div className="flex flex-col w-full items-center content-center justify-center">
-      <div id="editorjs" className={!loading ? " pt-10 z-0 rounded-lg max-h-full overflow-scroll no-scrollbar w-[750px] h-fit bg-white  border color-[#37352f]" : 'hidden'} />
+      <div id="editorjs" className={!loading ? " pt-10 z-0 rounded-lg max-h-full overflow-scroll no-scrollbar w-[80vw] max-w-[750px] h-fit bg-white  border color-[#37352f]" : 'hidden'} />
       <div className="flex flex-row space-x-4">
         <button onClick={handleSave} className="w-[100px] h-[35px] mt-[20px] bg-blue-500 text-white border-[2px] border-blue-500 rounded-3xl">Salveaza</button>
         <button onClick={handleDelete} className="w-[100px] h-[35px] mt-[20px] bg-red-500 text-white border-[2px] border-red-500 rounded-3xl">Sterge</button>

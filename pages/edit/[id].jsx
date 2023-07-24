@@ -76,9 +76,10 @@ export default function ViewPost() {
   {
     return (
         <>
-          <div className='flex flex-col items-center content-center space-y-10 py-24'>
-            <div className='flex flex-row justify-center content-center text-center'>
-              <input disabled={true} value={title} onChange={(e) => settitle(e.target.value)} className='font-bold bg-transparent justify-center w-full text-center caret-blue-500 border-transparent focus:border-transparent focus:ring-0 text-6xl focus:outline-none' placeholder={post?.title} />
+          <div className='flex flex-col items-center space-y-10 py-24'>
+            <div className='flex flex-row justify-center text-center break-words'>
+              {/* <input disabled={true} value={title} onChange={(e) => settitle(e.target.value)} className='font-bold bg-transparent justify-center w-full text-center caret-blue-500 border-transparent focus:border-transparent focus:ring-0 text-6xl focus:outline-none' placeholder={post?.title} /> */}
+              <span className='text-2xl sm:text-4xl md:text-6xl font-bold underline decoration-blue-500 w-[80vw] max-w-[800px]'>{post?.title}</span>
             </div>
             <div className='flex flex-row items-center content-center justify-center space-x-5'>
               <Image src={post?.creator_pic} width={50} height={50} alt='' className='rounded-full shadow' />

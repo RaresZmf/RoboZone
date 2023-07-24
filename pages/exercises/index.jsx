@@ -13,7 +13,7 @@ export default function ExIndex() {
             const { data, error } = await supabase
                 .from("quiz")
                 .select("*")
-                .order("id", { ascending: false });
+                .order("id", { ascending: true });
 
             if (error) {
                 console.error(error);

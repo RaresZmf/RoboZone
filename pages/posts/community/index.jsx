@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import Postcard from '../../../components/Postcard';
+import {LogoutIcon, PlusIcon} from '@heroicons/react/solid'
+
 
 export default function CommunityView() {
     const [articles, setarticles] = useState([])
@@ -40,7 +42,10 @@ export default function CommunityView() {
                 <div className='flex flex-col space-y-3 justify-center sm:items-start items-center'>
                     <span className='text-3xl font-bold underline decoration-6 decoration-blue-500'>Community</span>
                     <span className='text-gray-500 text-xl max-w-3xl '>Cocalarii îi învață pe cocalari robotikă</span>
-                    <button onClick={()=>router.push('/posts/community/postari')} className="w-fit px-4 h-[35px] mt-[20px] bg-blue-500 text-white border-[2px] border-blue-500 rounded-3xl">Editeaza postarile</button>
+                    <div className='flex flex-col items-center sm:flex-row sm:space-y-0 sm:space-x-5 space-y-5'>
+                        <button onClick={()=>router.push('/posts/community/postari')} className="px-4 h-[35px] bg-blue-500 text-white border-[2px] border-blue-500 rounded-3xl">Editeaza postarile</button>
+                        <button onClick={()=>router.push('/posts/community/add')} className="w-fit px-4 h-[35px] bg-blue-500 text-white border-[2px] border-blue-500 rounded-3xl flex items-center justify-center font-bold"><span>Posteaz&#259;</span><PlusIcon className='w-4 h-4' /></button>
+                    </div>
                 </div>
                 <div className='animate-floatingsmall2'>
                     <div className='relative w-[150px] h-[150px] sm:w-[200px] sm:h-[200px] md:w-[300px] md:h-[300px] sm:left-0'>

@@ -109,15 +109,17 @@ export default function ViewPost() {
     <>
       <div className='flex flex-col items-center content-center space-y-10 py-24'>
         <div className='flex flex-row justify-center content-center text-center'>
-          <span className='font-bold text-center text-6xl decoration-6 decoration-blue-500 underline'>
+          <span className='font-bold text-center text-2xl sm:text-4xl md:text-6xl decoration-6 decoration-blue-500 underline'>
             {post?.title}
           </span>
         </div>
-        <div className='flex flex-row items-center content-center justify-center space-x-5'>
-          <Image src={post?.creator_pic} width={50} height={50} alt='' className='rounded-full shadow' />
-          <div className='flex flex-col justify-center items-start content-start'>
-            <span className='text-center font-bold underline decoration-blue-500 decoration-4 text-lg'>{post?.creator_name}</span>
-            <span className='text-center text-gray-500 text-sm'>{time(post?.created_at)}</span>
+        <div className='flex flex-col sm:flex-row sm:space-y-0 space-y-5 items-center content-center justify-center space-x-5'>
+          <div className='flex space-x-5'>
+            <Image src={post?.creator_pic} width={50} height={50} alt='' className='rounded-full shadow' />
+            <div className='flex flex-col justify-center items-start content-start'>
+              <span className='text-center font-bold underline decoration-blue-500 decoration-4 text-lg'>{post?.creator_name}</span>
+              <span className='text-center text-gray-500 text-sm'>{time(post?.created_at)}</span>
+            </div>
           </div>
           <div className='rounded-full ring-2 ring-red-500 flex flex-row items-center content-center '>
             <HeartIcon onClick={() => toggleLike()} className={!peopleLiked.includes(user.sub) ? 'w-7 h-7 text-red-500 p-1 ring-2 ring-red-500 rounded-full transition duration-300 ease-in-out hover:bg-red-500 hover:text-white cursor-pointer' : 'w-7 h-7 text-white bg-red-500 ring-2 ring-red-500 p-1 rounded-full'} />

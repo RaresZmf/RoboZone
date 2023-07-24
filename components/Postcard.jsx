@@ -71,9 +71,9 @@ export default function Postcard({
         className="flex flex-col sm:h-[160px] hover:-translate-y-[10px] cursor-pointer hover:shadow-md space-y-3 transition duration-300 ease-in-out bg-white border justify-between rounded-xl p-5 shadow"
       >
         <div className="flex flex-col justify-start">
-          <div className="flex flex-row w-full justify-between items-center content-center">
-            <span className="underline decoration-4 decoration-blue-600 font-bold text-lg">
-              {ordine ? <>{`${ordine}. ${title}`}</> : <>{title}</>}
+          <div className="flex flex-row w-full justify-between items-center content-center ">
+            <span className="underline decoration-4 decoration-blue-600 font-bold text-lg break-words max-w-full">
+              {ordine ? <>{`${ordine}. ${title}`}</> : <>{title.length > 35 ? title.substring(0, 35)+'...' : title}</>}
             </span>
           </div>
           <span className="text-black justify-end text-opacity-40 font-normal text-md py-[5px]" dangerouslySetInnerHTML={{__html: truncatedDesc }} >

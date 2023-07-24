@@ -229,7 +229,7 @@ export default function EditorAdmin({ read, json, note, user, actual_user, owner
     
     <div className="flex flex-col items-center content-center justify-center">
       <input disabled={loading} value={title} onChange={(e) => settitle(e.target.value)} className='bg-transparent self-start w-full caret-blue-500 border-transparent focus:border-transparent focus:ring-0 text-5xl focus:outline-none' placeholder='Titlu' />
-      <div id="editorjs" className={!loading ? " pt-10 z-0 rounded-lg  max-h-[500px] overflow-scroll no-scrollbar h-[500px] bg-white w-full border color-[#37352f]" : 'hidden'} />
+      <div id="editorjs" className={!loading ? " pt-10 z-0 rounded-lg px-[5vw] max-h-[500px] overflow-scroll no-scrollbar h-[500px] bg-white w-full border color-[#37352f]" : 'hidden'} />
       <div className="mt-[25px]">
         <input className="border color-[#37352f] rounded-lg max-w-[100px] px-[5px]" placeholder="Capitolul" onChange={handleCapitolChange} />
         <input className="ml-[40px] border color-[#37352f] rounded-lg max-w-[100px] px-[5px]" placeholder="Nr. lectie" onChange={handleLectieChange}/>

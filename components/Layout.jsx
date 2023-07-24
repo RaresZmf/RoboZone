@@ -26,6 +26,7 @@ function Layout({ children }) {
           <div className='shadow-md border text-sm text-opacity-40 text-black rounded-b-none flex-wrap border-b-0 p-5 flex flex-row justify-center sm:justify-between bg-white rounded-xl max-w-[500px] w-[80vw] mx-[10%] space-x-3'>
             <Link href={"https://github.com/RaresZmf/RoboZone"}>GitHub</Link>
             <Link href={"/about"}>About</Link>
+            <Link href={"/"} className='sm:hidden'>Home</Link>
             <span>Copyright 2023 &copy; RoboZone</span>
           </div>
           <Toaster
