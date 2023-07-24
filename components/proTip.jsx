@@ -29,13 +29,13 @@ export default function ProTip(props){
     }
 
     return(
-        <div className={"relative flex justify-content-end"}>
+        <div className={props.classes + "relative flex justify-content-end"}>
             <div className={props.imageSize}>
                 <Image src={'https://res.cloudinary.com/dvntmruhr/image/upload/v1689724243/UI%20Icons/Chatbot_f8xvfz.png'} onClick={function(){openAIRequest()}} disabled={loading} objectFit='contain' layout='fill' alt="" className='animate-floatingsmall2' />
             </div>
             {
             show && proTip.length > 0 && proTip.length < 100 && 
-            <div className="absolute top-[55%] align-self-start md:whitespace-nowrap right-[90%]">
+            <div className="absolute hidden md:block top-[55%] align-self-start md:whitespace-nowrap right-[90%]">
                 <div className="border-2 border-primary rounded-xl rounded-tr-none py-[5px] px-[5px]">
                 <p className="w-[50vw] sm:w-[100%]">
                     <Typewriter

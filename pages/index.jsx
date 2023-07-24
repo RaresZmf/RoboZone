@@ -171,7 +171,7 @@ export default function Index() {
             />
           </div>
           <div className="absolute md:right-[-100px] bottom-[10vh] lg:bottom-[5vh] right-0">
-            <ProTip imageSize="w-[140px] h-[140px] md:h-[200px] md:w-[200px]" />
+            <ProTip imageSize="w-[140px] h-[140px] md:h-[200px] md:w-[200px]"/>
           </div>
         </div>
       </div>
