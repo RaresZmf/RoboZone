@@ -22,6 +22,7 @@ export default function ViewPost() {
   const { user } = useUser();
   const [markdown, setMarkdown] = useState('');
   const [isPostLoaded, setIsPostLoaded] = useState(false); // Variabila de stare pentru a urmări încărcarea completă a postului
+  const [iscommunity, setiscommunity] = useState(false)
 
   function time(time) {
     var m = moment(time);
@@ -35,6 +36,11 @@ export default function ViewPost() {
         .select('*')
         .eq('id', id)
         .single();
+
+      if(data.community)
+      {
+        setiscommunity(true)
+      }
 
       if (error) {
         console.error(error);
@@ -128,7 +134,7 @@ export default function ViewPost() {
         </div>
         {isPostLoaded && <EditorView json={post.json} />}
         <div>
-          {isPostLoaded && post.json && <Chat lessonContent={JSON.stringify(post.json)}/>}
+          {!iscommunity && isPostLoaded && post.json && <Chat lessonContent={JSON.stringify(post.json)}/>}
         </div>
       </div>
     </>

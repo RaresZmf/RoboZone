@@ -29,6 +29,21 @@ async function openAIRequest() {
     return (
         <div className={props.classes}>
             <div className="max-w-[800px] w-[90vw]">
+                <div className='flex flex-center items-stretch my-[20px]'>
+                    <textarea 
+                    onChange={(e) => setMessages(e.target.value)} 
+                    onKeyDown={(e) => {
+                        if (e.key === 'Enter' && !e.shiftKey) {
+                          e.preventDefault();
+                          openAIRequest();
+                        }
+                    }}
+                    value={messages} placeholder="Send your message here" 
+                    className='bg-transparent border-2 border-r-0 rounded-l-3xl border-primary placeholder-gray-500 w-full h-20 focus:outline-none text-black text-xl pt-[22px] pb-[8px] pl-[30px] pr-[50px] resize-none' 
+                    id="" cols="30" rows="10">
+                    </textarea>
+                    <button onClick={openAIRequest} className='text-2xl px-[20px] bg-darker text-light rounded-r-3xl bg-transparent border-2 border-l-[0px] border-primary'>Trimite</button>
+                </div>
                 <div className="">
                     {
                         displayMessage !== "" ?
@@ -52,21 +67,6 @@ async function openAIRequest() {
                         :
                         null
                     }
-                </div>
-                <div className='flex flex-center items-stretch my-[20px]'>
-                    <textarea 
-                    onChange={(e) => setMessages(e.target.value)} 
-                    onKeyDown={(e) => {
-                        if (e.key === 'Enter' && !e.shiftKey) {
-                          e.preventDefault();
-                          openAIRequest();
-                        }
-                    }}
-                    value={messages} placeholder="Send your message here" 
-                    className='bg-transparent border-2 border-r-0 rounded-l-3xl border-primary placeholder-gray-500 w-full h-20 focus:outline-none text-black text-xl pt-[22px] pb-[8px] pl-[30px] pr-[50px] resize-none' 
-                    id="" cols="30" rows="10">
-                    </textarea>
-                    <button onClick={openAIRequest} className='text-2xl px-[20px] bg-darker text-light rounded-r-3xl bg-transparent border-2 border-l-[0px] border-primary'>Trimite</button>
                 </div>
             </div>
         </div>

@@ -10,64 +10,38 @@ import { useState, useEffect } from 'react';
 
 function Profile() {
   const { user, isLoading } = useUser();
-  const [isadmin, setisadmin] = useState(false)
   const router = useRouter();
 
   function userLogOut() {
     router.push('/api/auth/logout')
   }
 
-  function routeLectie() {
-    router.push('/account/adminpost/add');
-  }
-
-  async function fetchAdmin() {
-    const { data, error } = await supabase
-        .from('authdata')
-        .select("admin")
-        .eq("auth0id", user.sub)
-        .limit(1);
-        setisadmin(data[0].admin)
-  }
-
-  useEffect(() => {
-    fetchAdmin();
-  }, [])
-
   return (
     <>
       {isLoading && <Loading />}
       {user && (
-        <>
-          <Row className="align-items-center profile-header mb-5 text-center text-md-left" data-testid="profile">
-            <Col md={2}>
-              <img
-                src={user.picture}
-                alt="Profile"
-                className="rounded-circle img-fluid profile-picture mb-3 mb-md-0"
-                decode="async"
-                data-testid="profile-picture"
-              />
-            </Col>
-            <Col md>
-              <h2 data-testid="profile-name">{user.name}</h2>
-              <p className="lead text-muted" data-testid="profile-email">
-                {user.email}
-              </p>
-            </Col>
-          </Row>
-          <Row data-testid="profile-json">
-            <Highlight>{JSON.stringify(user, null, 2)}</Highlight>
-          </Row>
-          <div className='flex align-items-center justify-center'>
-              <button onClick={userLogOut} className="w-[100px] h-[35px] my-[20px] bg-blue-500 text-white border-[2px] border-blue-500 rounded-3xl" round>LogOut</button>
-              {isadmin && (
-               <>
-                 <button onClick={routeLectie} className="w-[150px] h-[35px] my-[20px] bg-blue-500 text-white border-[2px] border-blue-500 rounded-3xl ml-[20px]" round>Adauga o Lectie</button>
-                </>
-              )}
+        <div className="flex flex-col sm:mx-[0px] sm:flex-row align-center justify-evenly items-center space-x-4 sm:border-4 border-blue-500 rounded-xl p-[40px]">
+          <div className='flex flex-col justify-center'>
+            <img
+              src={user.picture}
+              alt="Profile"
+              className="rounded-circle rounded-full img-fluid profile-picture mb-3 mb-md-0"
+              decode="async"
+              data-testid="profile-picture"
+            />
+            <button onClick={userLogOut} className="w-[150px] h-[35px] my-[5px] sm:my-[20px] bg-blue-500 text-white border-[2px] border-blue-500 rounded-3xl" round>Logout</button>
           </div>
-        </>
+          <div className="flex flex-col space-y-6 ml-[50px] p-[20px]">
+            <div>
+              <p className='text-bold opacity-50'>nickname</p>
+              <p className='border-4 rounded-l p-[5px]'>{user.nickname}</p>
+            </div>
+            <div>
+              <p className='text-bold opacity-50'>email</p>
+              <p className='border-4 rounded-l p-[5px]'>{user.email}</p>
+            </div>
+          </div>
+        </div>
       )}
     </>
   );

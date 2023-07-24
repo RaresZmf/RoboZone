@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { useState } from "react";
 import Typewriter from 'typewriter-effect';
 
@@ -11,7 +10,7 @@ export default function ProTip(props){
     const [loading, setLoading] = useState(false);
     
     async function openAIRequest() {
-        const messages = "Vreau sa imi generezi un pro tip foarte foarte scurt, maxim 15 cuvinte pentru un loading screen pentru un website despre arduino. Învăță C/C++ pentru Arduino. Este esențial pentru înțelegerea hardware-ului; 2. Folosește motoare pas cu pas pentru precizie mai mare în mișcare; 3. Un voltmeter este vital pentru testarea circuitelor; 4. Învăță despre PWM pentru controlul vitezei motorului; 5. Bateriile LiPo oferă un raport bun putere-greutate; 6. Folosește condensatori pentru a preveni interferențele electromagnetice; 7. Învăță Python. Este folosit în multe platforme de robotică; 8. Familiarizează-te cu legile lui Ohm și Kirchhoff; 9. Învață despre senzori ultrasonici pentru detectarea distanței; 10. Senzorii de temperatură sunt esențiali pentru prevenirea supraîncălzirii; 11. Învăță despre Raspberry Pi pentru aplicații de robotică complexe; 12. Biblioteca Servo în Arduino este utilă pentru controlul motorului; 13. Folosește un breadboard pentru prototiparea rapidă; 14. Familiarizează-te cu PID pentru un control mai bun al motorului; 15. Senzorii de mișcare pot adăuga funcționalitate autonomă; 16. Un osciloscop poate ajuta la diagnosticarea problemelor de semnal; 17. Folosește cuplaje flexibile pentru a preveni tensiunile pe ax; 18. Familiarizează-te cu ROS pentru aplicații de robotică avansate; 19. Învăță despre comunicațiile I2C și SPI pentru periferice; 20. Întotdeauna testează într-un mediu sigur înainte de utilizarea pe scară largă. Te rog sa te inspiri din pro tipurile furnizate, si sa il generezi cat mai catchy. Vreau sa generezi un signur pro tip."
+        const messages = "Scrie un scurt (maxim 10 cuvinte) fun fact despre domeniul tehnologiei"
         setProTip("")
         setLoading(true);
         setShow(true);
@@ -30,13 +29,10 @@ export default function ProTip(props){
 
     return(
         <div className={props.classes + "relative flex justify-content-end"}>
-            <div className={props.imageSize}>
-                <Image src={'https://res.cloudinary.com/dvntmruhr/image/upload/v1689724243/UI%20Icons/Chatbot_f8xvfz.png'} onClick={function(){openAIRequest()}} disabled={loading} objectFit='contain' layout='fill' alt="" className='animate-floatingsmall2' />
-            </div>
             {
             show && proTip.length > 0 && proTip.length < 100 && 
             <div className="absolute hidden md:block top-[55%] align-self-start md:whitespace-nowrap right-[90%]">
-                <div className="border-2 border-primary rounded-xl rounded-tr-none py-[5px] px-[5px]">
+                <div className="border-2 border-primary rounded-xl py-[5px] px-[5px]">
                 <p className="w-[50vw] sm:w-[100%]">
                     <Typewriter
                         key={proTip}

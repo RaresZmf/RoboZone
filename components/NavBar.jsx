@@ -28,7 +28,7 @@ const NavBar = () => {
   const router = useRouter();
 
   return (
-    <div className='flex flex-row w-full my-[20px] sm:justify-around justify-center items-center content-center'>
+    <div className='flex flex-row w-full sm:justify-around justify-center items-center content-center sm:static fixed top-[15px] z-50'>
       <Link href='/'>
         <span className='hidden sm:inline text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-blue-400 font-extrabold text-xl'>RoboZone</span>
       </Link>

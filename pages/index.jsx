@@ -114,9 +114,10 @@ export default function Index() {
     "captivante.",
   ];
   const router = useRouter();
+
   return (
     <>
-      <div className="flex flex-col items-center select-none mt-[0px] pb-[100px]">
+      <div className="flex flex-col items-center select-none mt-[0px] pb-[400px] md:pb-[100px]">
         <div className="mt-[0px] sm:mt-[0px] text-4xl md:text-6xl font-bold text-center">
           <motion.span
             variants={textVariants}
@@ -152,27 +153,31 @@ export default function Index() {
             </motion.span>
           ))}
         </motion.span>
-        <button
-          onClick={() => router.push("/posts/course")}
-          className="px-4 py-2 rounded-xl bg-blue-500 ring-2 ring-offset-2 ring-blue-500 mt-6 transition duration-300 ease-in-out hover:ring-offset-4 text-white font-medium outline-2"
-        >
-          C&#259;tre cursuri
-        </button>
-        <div className="relative w-full pt-[300px]">
-          <div className="absolute sm:inline bottom-[-50px] left-[-4vw] sm:left-0 w-[140px] h-[140px] md:h-[100px] md:w-[200px]">
-            <Image
-              src={
-                "https://res.cloudinary.com/dvntmruhr/image/upload/v1689724243/UI%20Icons/Automation_Testing_tuh2zs.png"
-              }
-              width={300}
-              height={300}
-              alt=""
-              className=""
-            />
-          </div>
-          <div className="absolute md:right-[-100px] bottom-[10vh] lg:bottom-[5vh] right-0">
-            <ProTip imageSize="w-[140px] h-[140px] md:h-[200px] md:w-[200px]"/>
-          </div>
+          <button
+            onClick={() => router.push("/posts/course")}
+            className="w-[150px] px-4 py-2 rounded-xl bg-blue-500 ring-2 ring-offset-2 ring-blue-500 mt-6 transition duration-300 ease-in-out hover:ring-offset-4 text-white font-medium outline-2"
+          >
+            C&#259;tre cursuri
+          </button>
+        <div className="md:flex md:flex-row  justify-between absolute md:w-full md:pt-[100px] md:px-[100px]">
+          <Image
+            src={
+              "https://res.cloudinary.com/dvntmruhr/image/upload/v1689724243/UI%20Icons/Automation_Testing_tuh2zs.png"
+            }
+            width={300}
+            height={300}
+            alt=""
+            className="invisible lg:visible"
+          />
+          <Image
+            src={
+              'https://res.cloudinary.com/dvntmruhr/image/upload/v1689724243/UI%20Icons/Chatbot_f8xvfz.png'
+            }
+            className='animate-floatingsmall2 mt-[-30px] md:mt-[0px] md:ml-[100px] lg:ml-[0px]'
+            width={300}
+            height={300}
+            alt=""
+          />
         </div>
       </div>
     </>
