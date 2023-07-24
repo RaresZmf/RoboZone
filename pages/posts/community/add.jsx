@@ -13,7 +13,7 @@ export default function PostCommunity() {
 
     return (
         <>
-            <div className='flex flex-col w-[800px] space-y-3'>
+            <div className='px-[8vw] flex flex-col max-w-[800px] space-y-3 pb-[50px]'>
                 <Editor user={user.sub} user_pic={user.picture} user_name={user.nickname} />
             </div>
         </>

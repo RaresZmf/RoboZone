@@ -1,18 +1,18 @@
-import React, { useState, useEffect } from 'react';
-import Image from 'next/image';
-import Hero from '../components/Hero';
-import Content from '../components/Content';
-import supabase from '../utils/supabase';
-import { useRouter } from 'next/router';
+import React, { useState, useEffect } from "react";
+import Image from "next/image";
+import Hero from "../components/Hero";
+import Content from "../components/Content";
+import supabase from "../utils/supabase";
+import { useRouter } from "next/router";
 import { motion } from "framer-motion";
-import Postcard from '../components/Postcard';
-import { useUser } from '@auth0/nextjs-auth0/client';
+import Postcard from "../components/Postcard";
+import { useUser } from "@auth0/nextjs-auth0/client";
 
-import ProTip from '../components/proTip';
+import ProTip from "../components/proTip";
 
 export default function Index() {
   const { user, isLoading } = useUser();
-  const [articles, setarticles] = useState([])
+  const [articles, setarticles] = useState([]);
   const textVariants = {
     hidden: {
       opacity: 0,
@@ -46,28 +46,23 @@ export default function Index() {
     visible: { opacity: 1 },
   };
 
-  async function fetchUser(){
-      const { data, error } = await supabase
-        .from('authdata')
-        .select("*")
-        .eq("auth0id", user.sub)
-        .limit(1);
+  async function fetchUser() {
+    const { data, error } = await supabase
+      .from("authdata")
+      .select("*")
+      .eq("auth0id", user.sub)
+      .limit(1);
 
-        console.log(data);
-        console.log(error);
+    console.log(data);
+    console.log(error);
 
-        if(data.length<1)
-      {
-        await supabase
-        .from('authdata')
-        .insert({auth0id: user.sub});
+    if (data.length < 1) {
+      await supabase.from("authdata").insert({ auth0id: user.sub });
 
-        console.log("added user");
-      }
-      else
-      {
-        console.log("user already exists");
-      }
+      console.log("added user");
+    } else {
+      console.log("user already exists");
+    }
   }
 
   async function fetchData() {
@@ -76,7 +71,7 @@ export default function Index() {
         .from("MD")
         .select("*")
         .eq("introduction", true)
-        .limit(10);
+        .limit(100);
 
       if (error) {
         console.error(error);
@@ -94,7 +89,7 @@ export default function Index() {
   useEffect(() => {
     fetchData();
     fetchUser();
-  }, [])
+  }, []);
   const words = [
     "Explorează",
     "fascinanta",
@@ -121,60 +116,62 @@ export default function Index() {
   const router = useRouter();
   return (
     <>
-      <div className='flex flex-col items-center content-center select-none sm:mt-[100px] lg:mt-[0px]'>
-        <div className=' lg:absolute hidden relative lg:top-0 lg:left-10 translate-x-[-100%] lg:translate-y-[300px] h-[140px] w-[140px] md:h-[200px] md:w-[200px]'>
-          <Image src={'https://res.cloudinary.com/dvntmruhr/image/upload/v1689724243/UI%20Icons/Automation_Testing_tuh2zs.png'} objectFit='contain' layout='fill' alt="" className='' />
+      <div className="flex flex-col items-center select-none mt-[0px] pb-[100px]">
+        <div className="mt-[0px] sm:mt-[0px] text-4xl md:text-6xl font-bold text-center">
+          <motion.span
+            variants={textVariants}
+            initial="hidden"
+            animate="visible"
+          >
+            Învață
+          </motion.span>{" "}
+          <motion.span
+            variants={textVariants}
+            initial="hidden"
+            animate="visible"
+          >
+            <motion.span
+              className="bg-gradient-to-r from-blue-700 to-blue-400 text-transparent bg-clip-text"
+              variants={textVariants}
+              initial="hidden"
+              animate="visible"
+            >
+              robotică
+            </motion.span>
+          </motion.span>
+          .
         </div>
-        <div className='relative h-[270px] w-full'>
-          <div className='absolute top-0 right-0'>
-            <ProTip imageSize='w-[140px] h-[140px] md:h-[200px] md:w-[200px]' />
-          </div>
-          {/* <Image src={'https://res.cloudinary.com/dvntmruhr/image/upload/v1689724243/UI%20Icons/Chatbot_f8xvfz.png'} width={300} height={300} alt="" className='animate-floatingsmall2' /> */}
-        </div>
-        <div className="text-4xl md:text-6xl font-bold text-center">
-      <motion.span
-        variants={textVariants}
-        initial="hidden"
-        animate="visible"
-      >
-        Învață
-      </motion.span>{" "}
-      <motion.span
-        variants={textVariants}
-        initial="hidden"
-        animate="visible"
-      >
         <motion.span
-          className="bg-gradient-to-r from-blue-700 to-blue-400 text-transparent bg-clip-text"
-          variants={textVariants}
+          variants={textVariants2}
           initial="hidden"
           animate="visible"
-        >
-          robotică
+          className="text-gray-500 max-w-[80%] md:max-w-3xl  text-center mt-4">
+          {words.map((word, index) => (
+            <motion.span key={index} variants={wordVariants}>
+              {word}{" "}
+            </motion.span>
+          ))}
         </motion.span>
-      </motion.span>
-      .
-    </div>
-    <motion.span
-        variants={textVariants2}
-        initial="hidden"
-        animate="visible"
-        className="text-gray-500 max-w-[80%] md:max-w-3xl  text-center mt-4"
-      >
-        {words.map((word, index) => (
-          <motion.span key={index} variants={wordVariants}>
-            {word}{" "}
-          </motion.span>
-        ))}
-      </motion.span>
-        <button onClick={() => router.push('/posts/course')} className='px-4 py-2 rounded-xl bg-blue-500 ring-2 ring-offset-2 ring-blue-500 mt-6 transition duration-300 ease-in-out hover:ring-offset-4 text-white font-medium outline-2'>
+        <button
+          onClick={() => router.push("/posts/course")}
+          className="px-4 py-2 rounded-xl bg-blue-500 ring-2 ring-offset-2 ring-blue-500 mt-6 transition duration-300 ease-in-out hover:ring-offset-4 text-white font-medium outline-2"
+        >
           C&#259;tre cursuri
         </button>
-        <div className='my-24 w-screen px-[10%] flex justify-center'>
-          <div className='grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-10 max-w-[800px]'>
-            {articles.map((article) => (
-              <Postcard key={'X_ROBOZONE_CARD_' + article.id} title={article.title} id={article.id} description={article.subtitle} />
-            ))}
+        <div className="relative w-full pt-[300px]">
+          <div className="absolute sm:inline bottom-[-50px] left-[-4vw] sm:left-0 w-[140px] h-[140px] md:h-[100px] md:w-[200px]">
+            <Image
+              src={
+                "https://res.cloudinary.com/dvntmruhr/image/upload/v1689724243/UI%20Icons/Automation_Testing_tuh2zs.png"
+              }
+              width={300}
+              height={300}
+              alt=""
+              className=""
+            />
+          </div>
+          <div className="absolute md:right-[-100px] bottom-[10vh] lg:bottom-[5vh] right-0">
+            <ProTip imageSize="w-[140px] h-[140px] md:h-[200px] md:w-[200px]" />
           </div>
         </div>
       </div>
