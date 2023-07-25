@@ -1,116 +1,78 @@
-# Auth0 Next.js SDK Sample Application
+# RoboZone
 
-This sample demonstrates the integration of [Auth0 Next.js SDK](https://github.com/auth0/nextjs-auth0) into a Next.js application created using [create-next-app](https://nextjs.org/docs/api-reference/create-next-app). The sample is a companion to the [Auth0 Next.js SDK Quickstart](https://auth0.com/docs/quickstart/webapp/nextjs).
+RoboZone este o platformă educațională interactivă, construită folosind Next.js, destinată învățării roboticii. Acesta aduce o abordare modernă, bazată pe lecții în format Markdown, transformând procesul de învățare într-o experiență captivantă și ușor de parcurs.
+[![My Skills](https://skillicons.dev/icons?i=nextjs,js)](https://skillicons.dev)
 
-This sample demonstrates the following use cases:
 
-- [Login](https://github.com/auth0-samples/auth0-nextjs-samples/blob/main/Sample-01/components/NavBar.jsx#L61-L67)
-- [Logout](https://github.com/auth0-samples/auth0-nextjs-samples/blob/main/Sample-01/components/NavBar.jsx#L93-L95)
-- [Showing the user profile](https://github.com/auth0-samples/auth0-nextjs-samples/blob/main/Sample-01/pages/profile.jsx)
-- [Protecting client-side rendered pages](https://github.com/auth0-samples/auth0-nextjs-samples/blob/main/Sample-01/pages/profile.jsx#L43-L46)
-- [Calling APIs](https://github.com/auth0-samples/auth0-nextjs-samples/blob/main/Sample-01/pages/external.jsx)
+## Caracteristici
 
-## Project setup
+- **Lecții Markdown**: RoboZone oferă conținut educațional relevant, într-un format ușor de înțeles și de parcurs. Markdown permite prezentarea informațiilor într-un mod organizat și ușor de urmărit.
 
-Use `npm` to install the project dependencies:
+[![My Skills](https://skillicons.dev/icons?i=md)](https://skillicons.dev)
+- **Chat-uri cu Inteligență Artificială**: Integrăm funcții avansate de AI pentru a facilita interacțiunea și învățarea personalizată, transformând studiul robotică într-o experiență dinamică și stimulativă.
+
+[![My Skills](https://skillicons.dev/icons?i=ai)](https://skillicons.dev)
+- **Integrare cu Discord**: În RoboZone, ne străduim să construim o comunitate puternică de învățare. În acest sens, am integrat platforma noastră cu serverul nostru de Discord, unde elevii pot colabora, împărtăși idei și se pot ajuta reciproc în procesul de învățare.
+
+[![My Skills](https://skillicons.dev/icons?i=discord)](https://skillicons.dev)
+- **Interfață Prietenoasă cu Utilizatorul**: Facem învățarea roboticii accesibilă tuturor, cu o interfață intuitivă și ușor de navigat, facuta cu componente de react si tailwind.
+
+[![My Skills](https://skillicons.dev/icons?i=html,css,react,tailwind)](https://skillicons.dev)
+- **Sistem de versionare cu GitHub** pentru a urmări toate modificările și dezvoltările proiectului
+
+[![My Skills](https://skillicons.dev/icons?i=github)](https://skillicons.dev)  
+- **Bază de date robustă și ușor de folosit cu Supabase**, o alternativă gratuită la Firebase
+
+[![My Skills](https://skillicons.dev/icons?i=supabase)](https://skillicons.dev)  
+
+## Cum să începi
+
+Pentru a rula aplicația local, urmează pașii de mai jos, dar noi recomandam sa intri pe robozone.zone:
+
+1. Clonează repository-ul:
 
 ```bash
-npm install
+git clone https://github.com/yourusername/robozone.git
 ```
 
-## Configuration
-
-### Create an API
-
-For the **External API** page to work, you will need to [create an API](https://auth0.com/docs/authorization/apis) using the [management dashboard](https://manage.auth0.com/#/apis). This will give you an API Identifier that you can use in the `AUTH0_AUDIENCE` environment variable below. Then you will need to [add a permission](https://auth0.com/docs/get-started/dashboard/add-api-permissions) named `read:shows` to your API. To get your app to ask for that permission, include it in the value of the `AUTH0_SCOPE` environment variable.
-
-If you do not wish to use an API or observe the API call working, you should not specify the `AUTH0_AUDIENCE` and `AUTH0_SCOPE` values in the next steps.
-
-### Configure credentials
-
-The project needs to be configured with your Auth0 Domain, Client ID and Client Secret for the authentication flow to work.
-
-To do this, first copy `.env.local.example` into a new file in the same folder called `.env.local`, and replace the values with your own Auth0 application credentials (see more info about [loading environmental variables in Next.js](https://nextjs.org/docs/basic-features/environment-variables)):
-
-```sh
-# A long secret value used to encrypt the session cookie
-AUTH0_SECRET='LONG_RANDOM_VALUE'
-# The base url of your application
-AUTH0_BASE_URL='http://localhost:3000'
-# The url of your Auth0 tenant domain
-AUTH0_ISSUER_BASE_URL='https://YOUR_AUTH0_DOMAIN.auth0.com'
-# Your Auth0 application's Client ID
-AUTH0_CLIENT_ID='YOUR_AUTH0_CLIENT_ID'
-# Your Auth0 application's Client Secret
-AUTH0_CLIENT_SECRET='YOUR_AUTH0_CLIENT_SECRET'
-# Your Auth0 API's Identifier 
-# OMIT if you do not want to use the API part of the sample
-AUTH0_AUDIENCE='YOUR_AUTH0_API_IDENTIFIER'
-# The permissions your app is asking for
-# OMIT if you do not want to use the API part of the sample
-AUTH0_SCOPE='openid profile email read:shows'
+Navigați către directorul proiectului:
+```bash
+cd robozone
 ```
-
-**Note**: Make sure you replace `AUTH0_SECRET` with your own secret (you can generate a suitable string using `openssl rand -hex 32` on the command line).
-
-## Run the sample
-
-### Compile and hot-reload for development
-
-This compiles and serves the Next.js app and starts the API server on port 3001.
-
+Rulati aplicatia
 ```bash
 npm run dev
 ```
 
-## Deployment
+Aplicația ar trebui să fie acum în execuție la http://localhost:3000.
 
-### Compiles and minifies for production
+## Contribuții
 
-```bash
-npm run build
-```
+Ne bucurăm întotdeauna să vedem entuziasmul și interesul comunității pentru proiectul nostru **RoboZone**. Cu toate acestea, în momentul de față, site-ul nostru este înscris într-o competiție care nu permite contribuții externe. Din acest motiv, nu putem accepta în prezent modificări sau actualizări la codul sursă.
 
-### Docker build
+Vă apreciem înțelegerea și vă încurajăm să continuați să ne urmăriți pentru actualizări și progrese pe parcurs ce dezvoltăm și îmbunătățim acest proiect interesant.
 
-To build and run the Docker image, run `exec.sh`, or `exec.ps1` on Windows.
 
-### Run the unit tests
+License
 
-```bash
-npm run test
-```
+MIT License
 
-### Run the integration tests
+Copyright (c) 2023 Rares Zamfira && Robert Paun
 
-```bash
-npm run test:integration
-```
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-## What is Auth0?
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-Auth0 helps you to:
-
-* Add authentication with [multiple sources](https://auth0.com/docs/identityproviders), either social identity providers such as **Google, Facebook, Microsoft Account, LinkedIn, GitHub, Twitter, Box, Salesforce** (amongst others), or enterprise identity systems like **Windows Azure AD, Google Apps, Active Directory, ADFS, or any SAML Identity Provider**.
-* Add authentication through more traditional **[username/password databases](https://auth0.com/docs/connections/database/custom-db)**.
-* Add support for **[linking different user accounts](https://auth0.com/docs/users/user-account-linking)** with the same user.
-* Support for generating signed [JSON Web Tokens](https://auth0.com/docs/tokens/json-web-tokens) to call your APIs and **flow the user identity** securely.
-* Analytics of how, when, and where users are logging in.
-* Pull data from other sources and add it to the user profile through [JavaScript rules](https://auth0.com/docs/rules).
-
-## Create a Free Auth0 Account
-
-1. Go to [Auth0](https://auth0.com) and click **Sign Up**.
-2. Use Google, GitHub, or Microsoft Account to login.
-
-## Issue Reporting
-
-If you have found a bug or if you have a feature request, please report them at this repository issues section. Please do not report security vulnerabilities on the public GitHub issue tracker. The [Responsible Disclosure Program](https://auth0.com/responsible-disclosure-policy) details the procedure for disclosing security issues.
-
-## Author
-
-[Auth0](https://auth0.com)
-
-## License
-
-This project is licensed under the MIT license. See the [LICENSE](./LICENSE) file for more info.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
