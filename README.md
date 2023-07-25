@@ -48,7 +48,7 @@ Pentru a rula aplicația local, urmează pașii de mai jos. Recomandarea noastr�
 1. Clonează repository-ul:
 
 ```bash
-git clone https://github.com/yourusername/robozone.git
+https://github.com/RaresZmf/RoboZone
 ```
 
 2. Navigați către directorul proiectului:
