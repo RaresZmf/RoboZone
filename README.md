@@ -1,33 +1,47 @@
 # RoboZone
 
-RoboZone este o platformă educațională interactivă, construită folosind Next.js, destinată învățării roboticii. Acesta aduce o abordare modernă, bazată pe lecții în format Markdown, transformând procesul de învățare într-o experiență captivantă și ușor de parcurs.
-[![My Skills](https://skillicons.dev/icons?i=nextjs,js)](https://skillicons.dev)
+RoboZone este o platformă educațională interactivă, construită folosind Next.js, care vizează educația în domeniul roboticii. Cu o abordare modernă, bazată pe lecții în format Editor.js, RoboZone face din procesul de învățare o experiență captivantă și ușor de parcurs.
 
+[![My Skills](https://skillicons.dev/icons?i=nextjs,js)](https://skillicons.dev)
 
 ## Caracteristici
 
-- **Lecții Markdown**: RoboZone oferă conținut educațional relevant, într-un format ușor de înțeles și de parcurs. Markdown permite prezentarea informațiilor într-un mod organizat și ușor de urmărit.
+### **Auth0**
+Autentificarea este o componentă esențială a oricărei aplicații web. Auth0 ne oferă un sistem de autentificare securizat și eficient, asigurând că datele utilizatorilor noștri sunt protejate.
 
-[![My Skills](https://skillicons.dev/icons?i=md)](https://skillicons.dev)
-- **Chat-uri cu Inteligență Artificială**: Integrăm funcții avansate de AI pentru a facilita interacțiunea și învățarea personalizată, transformând studiul robotică într-o experiență dinamică și stimulativă.
+### **Lecții Editor.js**
+Editor.js este un editor de text bazat pe blocuri pentru web, care oferă o experiență vizuală îmbunătățită pentru crearea de conținut. Lecțiile noastre sunt prezentate în acest format, ceea ce le face ușor de parcurs și înțeles. Astfel, învățarea roboticii devine o experiență plăcută, nu o corvoadă.
+
+[![My Skills](https://skillicons.dev/icons?i=editorjs)](https://skillicons.dev)
+
+### **Chat-uri cu Inteligență Artificială**
+Prin intermediul inteligenței artificiale, încercăm să îmbunătățim procesul de învățare al utilizatorilor. Un chatbot AI poate răspunde la întrebări, poate ajuta cu lecții și poate face procesul de învățare mai interactiv și personalizat.
 
 [![My Skills](https://skillicons.dev/icons?i=ai)](https://skillicons.dev)
-- **Integrare cu Discord**: În RoboZone, ne străduim să construim o comunitate puternică de învățare. În acest sens, am integrat platforma noastră cu serverul nostru de Discord, unde elevii pot colabora, împărtăși idei și se pot ajuta reciproc în procesul de învățare.
+
+### **Integrare cu Discord**
+Construim o comunitate puternică de învățare. Prin integrarea cu Discord, elevii pot colabora, împărtăși idei și se pot ajuta reciproc în procesul de învățare. 
 
 [![My Skills](https://skillicons.dev/icons?i=discord)](https://skillicons.dev)
-- **Interfață Prietenoasă cu Utilizatorul**: Facem învățarea roboticii accesibilă tuturor, cu o interfață intuitivă și ușor de navigat, facuta cu componente de react si tailwind.
+
+### **Interfață Prietenoasă cu Utilizatorul**
+RoboZone este construit cu o interfață intuitivă și ușor de navigat. Folosind componente React și Tailwind CSS, ne asigurăm că site-ul nostru este accesibil tuturor, indiferent de nivelul de experiență.
 
 [![My Skills](https://skillicons.dev/icons?i=html,css,react,tailwind)](https://skillicons.dev)
-- **Sistem de versionare cu GitHub** pentru a urmări toate modificările și dezvoltările proiectului
+
+### **Sistem de versionare cu GitHub**
+Toate modificările și dezvoltările proiectului sunt urmărite prin GitHub, asigurându-ne că nicio schimbare nu este pierdută.
 
 [![My Skills](https://skillicons.dev/icons?i=github)](https://skillicons.dev)  
-- **Bază de date robustă și ușor de folosit cu Supabase**, o alternativă gratuită la Firebase
+
+### **Bază de date robustă și ușor de folosit cu Supabase**
+Supabase este o alternativă open-source la Firebase. Oferă o gamă largă de caracteristici, inclusiv o bază de date în timp real, autentificare și stocare de fișiere, toate acestea fiind ușor de folosit.
 
 [![My Skills](https://skillicons.dev/icons?i=supabase)](https://skillicons.dev)  
 
 ## Cum să începi
 
-Pentru a rula aplicația local, urmează pașii de mai jos, dar noi recomandam sa intri pe robozone.zone:
+Pentru a rula aplicația local, urmează pașii de mai jos. Recomandarea noastră principală rămâne însă utilizarea versiunii live de pe robozone.zone:
 
 1. Clonează repository-ul:
 
@@ -35,11 +49,15 @@ Pentru a rula aplicația local, urmează pașii de mai jos, dar noi recomandam s
 git clone https://github.com/yourusername/robozone.git
 ```
 
-Navigați către directorul proiectului:
+2. Navigați către directorul proiectului:
 ```bash
 cd robozone
 ```
-Rulati aplicatia
+3. Instalați dependențele:
+```bash
+npm install
+```
+4. Rulează aplicația:
 ```bash
 npm run dev
 ```
@@ -48,12 +66,9 @@ Aplicația ar trebui să fie acum în execuție la http://localhost:3000.
 
 ## Contribuții
 
-Ne bucurăm întotdeauna să vedem entuziasmul și interesul comunității pentru proiectul nostru **RoboZone**. Cu toate acestea, în momentul de față, site-ul nostru este înscris într-o competiție care nu permite contribuții externe. Din acest motiv, nu putem accepta în prezent modificări sau actualizări la codul sursă.
+Suntem încântați să vedem interesul comunității pentru RoboZone. Cu toate acestea, din cauza regulamentului competiției în care suntem înregistrați, nu putem accepta contribuții externe în acest moment. Mulțumim pentru înțelegere și vă încurajăm să urmăriți progresul proiectului nostru.
 
-Vă apreciem înțelegerea și vă încurajăm să continuați să ne urmăriți pentru actualizări și progrese pe parcurs ce dezvoltăm și îmbunătățim acest proiect interesant.
-
-
-License
+## Licență
 
 MIT License
 
