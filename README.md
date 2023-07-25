@@ -1,5 +1,7 @@
 # RoboZone
 
+Documentatie Robozone: https://docs.google.com/document/d/1dn6-ymM7QMIdDGtIwpM140L21PUlmi4LP2mWDp8IBmQ/edit?usp=sharing
+
 RoboZone este o platformă educațională interactivă, construită folosind Next.js, care vizează educația în domeniul roboticii. Cu o abordare modernă, bazată pe lecții în format Editor.js, RoboZone face din procesul de învățare o experiență captivantă și ușor de parcurs.
 
 [![My Skills](https://skillicons.dev/icons?i=nextjs,js)](https://skillicons.dev)
