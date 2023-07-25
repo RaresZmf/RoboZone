@@ -37,7 +37,7 @@ export default function ExIndex() {
             <div className='flex sm:flex-row flex-col items-center content-center justify-between'>
                 <div className='flex flex-col space-y-3 justify-center text-center sm:text-left items-center sm:items-start'>
                     <span className='text-4xl sm:text-6xl font-bold underline decoration-6 decoration-blue-500'>Exerci&#355;ii</span>
-                    <span className='text-gray-500 text-xl max-w-3xl '>Cocalarii îi învață pe cocalari robotikă</span>
+                    <span className='text-gray-500 text-xl max-w-3xl '>Testeaza-ti cunostintele aici</span>
                 </div>
                 <div className='animate-floatingsmall2'>
                     <div className='relative left-[20vw] w-[150px] h-[150px] sm:w-[200px] sm:h-[200px] md:w-[300px] md:h-[300px] sm:left-0'>
