@@ -41,7 +41,7 @@ Supabase este o alternativă open-source la Firebase. Oferă o gamă largă de c
 
 ## Cum să începi
 
-Pentru a rula aplicația local, urmează pașii de mai jos. Recomandarea noastră principală rămâne însă utilizarea versiunii live de pe robozone.zone:
+Pentru a rula aplicația local, urmează pașii de mai jos. Recomandarea noastră principală rămâne însă utilizarea versiunii live de pe robo-zone.vercel.app:
 
 1. Clonează repository-ul:
 
