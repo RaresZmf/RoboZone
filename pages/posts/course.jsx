@@ -72,8 +72,8 @@ export default function CourseView() {
         <div className='flex flex-col select-none w-screen max-w-4xl'>
             <div className='flex sm:flex-row flex-col items-center content-center justify-between'>
                 <div className='flex flex-col sm:mx-[10%] space-y-3 justify-center'>
-                    <span className='text-4xl md:text-6xl text-center font-bold underline decoration-6 decoration-blue-500'>Fii robot</span>
-                    <span className='text-gray-500 text-xl max-w-3xl text-center'>Escape the matrix</span>
+                    <span className='text-4xl md:text-6xl text-center font-bold underline decoration-6 decoration-blue-500'>Lectii</span>
+                    <span className='text-gray-500 text-xl max-w-3xl text-center'>Universul Roboticii în 9 capitole</span>
                     <div className='flex items-center flex-col sm:flex-row align-items-center justify-center content-center sm:space-x-6'>
                         {isadmin && (
                             <>
